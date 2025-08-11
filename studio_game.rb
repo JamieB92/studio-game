@@ -14,10 +14,4 @@ game.add_player(player_3)
 game.add_player(player_4)
 game.add_player(player_5)
 
-game.play
-
-
-
-
-
-
+game.play(3)
