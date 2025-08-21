@@ -1,3 +1,5 @@
+require_relative "treasure_trove"
+
 class Game
 
   attr_reader :title, :players
@@ -19,6 +21,10 @@ class Game
 
     puts "\nLets play #{@title}"
 
+    TreasureTrove::TREASURES.each do |treasure|
+      puts "A #{treasure.name} is worth #{treasure.points} points"
+    end
+
     puts "\nBefore playing:"
     puts @players
 
@@ -38,6 +44,8 @@ class Game
           player.boost
           puts "#{player.name} got boosted 😁"
         end
+        treasure = TreasureTrove.random_treasure
+        puts "#{player.name} found a #{treasure.name} worth #{treasure.points}"
       end
     end
     puts "\nAfter playing:"
